@@ -11,15 +11,16 @@ Torsion Profiler is a package for calculating and analyzing torsion profiles. It
 
 A key strength of TorsionProfiler lies in its modularity, which facilitates the easy swapping of theoretical levels or methods in the calculation. It also scales seamlessly from a single interactively calculated torsion profile to hundreds in High-Performance Computing (HPC) environments.
 At the heart of TorsionProfiler is the TorsionProfiler class, which standardizes the process of calculating torsion profiles. This general approach can be divided into two main steps:
-	• The initial step involves the rapid generation of a torsion profile, creating an initial torsion profile via an initial_torsion_profile_generator. The objective here is to establish a set of coordinates as an initial starting point (for example, 36 starting molecule conformations forming the 360-degree rotation).
-	   ![pic](.img/molecule_flowers_small.png)
 
-	• The subsequent step involves optimizing each generated conformation that represents one torsion angle at the desired theoretical level. The backends currently implemented include MMFF94, OpenFF 2.0, OpenFF-Mace2023, ANI, XTB, Gaussian, and Psi4. This step produces the final torsion profile coordinates and energies.
-	   ![pic](.img/mol_torsion_profile_small.png)
+• The initial step involves the rapid generation of a torsion profile, creating an initial torsion profile via an initial_torsion_profile_generator. The objective here is to establish a set of coordinates as an initial starting point (for example, 36 starting molecule conformations forming the 360-degree rotation).
+	   ![step1_molecule_coordinates](.img/molecule_flowers_small.png)
+
+• The subsequent step involves optimizing each generated conformation that represents one torsion angle at the desired theoretical level. The backends currently implemented include MMFF94, OpenFF 2.0, OpenFF-Mace2023, ANI, XTB, Gaussian, and Psi4. This step produces the final torsion profile coordinates and energies.
+	   ![step2_calculate_profile](.img/mol_torsion_profile_small.png)
 
 TorsionProfiler can be utilized either through Python3 or as a Command-Line Interface (CLI) tool (details provided below).
 
-Chckout our pre-print: <link>
+Chckout our pre-print: ![soon]()
 
 
 
@@ -27,7 +28,7 @@ Chckout our pre-print: <link>
 There are multiple ways how you can get a torsion profile, either you use the command line tool in bash or you access our code via python:
 
 ### CLI
-TorsionProfiler has an CLI tool! you can calculate with it torsions like:
+TorsionProfiler has an CLI tool:
 ```shell
 > conda activate torsion_profiler
 > torsion_profiler_cli -h
@@ -50,8 +51,7 @@ TorsionProfiles Commands:
 
 ```
 
-* CLI - Calculate a single Torsion
-Here is an example on how to calculate one desired torsion with the CLI:
+* **CLI - Calculate a single Torsion**
 ```shell
 #!/usr/bin/env bash
 conda activate torsion_profiler
@@ -59,16 +59,16 @@ conda activate torsion_profiler
 torsion_profiler_cli tp-off -m c1ccccc1NCC -t 6,7,8,9 # -m can also be a path to an .sdf-file
 ```
 
-* CLI - Calculate all torsions of a molecule
-TorsionProfiler has an CLI tool! you can calculate with it torsions like:
+* **CLI - Calculate all torsions of a molecule**
 ```shell
 #!/usr/bin/env bash
 conda activate torsion_profiler
 
 torsion_profiler_cli tp-off -m c1ccccc1NCC -a true
 ```
+
 ### PYTHON
-* PYTHON - Calculate a single Torsion
+* **PYTHON - Calculate a single Torsion**
 Of course you can access TorsionProfiler over python, just make sure you activated the correct env (see developer info)
 ```python
 
@@ -100,7 +100,7 @@ plot_torsion_profile(mol=mol, torsion_atom_ids=torsion_atom_ids,
                      data_labels="ANI2x", title_prefix=str(torsion_atom_ids));
 ```
 
-* PYTHON - Calculate multiple torsions for multiple molecules
+* **PYTHON - Calculate multiple torsions for multiple molecules**
 ```python
 #Load Data:
 import ast
@@ -145,12 +145,12 @@ df = tp.wait() # This might take some time.
 
 ## For Developers:
 ### Install
-You can simply install TorsionProfiler with conda using:
-```sh
+You can simply install TorsionProfiler with mamba using:
+```shell
     git clone <path>
     cd torsion_profiler
-    conda env create -f environment.yml
-    conda activate torsion_profiler
+    mamba env create -f environment.yml
+    mamba activate torsion_profiler
     pip install .
 ```
 
@@ -160,8 +160,6 @@ there are only a few things, that I would like to have in this repo:
  1. Please use NumpyDoc Docstrings to document your code!
  2. Please use typing for function parameters, returns and class attributes
  3. Please start a branch with git of the main repo, where you develop your cool new feature :)
- 
-Need Help? No worries, just write me! :)
-   
+
 ### Authors:
 Benjamin Ries, Igor Gordiy, Thomas Fox
