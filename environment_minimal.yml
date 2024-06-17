@@ -1,0 +1,35 @@
+name: torsion_profiler
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Python
+  - python
+  - notebook
+  - tqdm
+  - pylint
+  - bandit
+
+  # test
+  - pytest
+
+  # CLI
+  - click
+  - plugcli
+
+  # std. Python:
+  - matplotlib
+  - numpy
+  - pandas=2.1.0
+  - scipy
+  - mpmath
+  - scikit-learn
+
+  # Chemistry
+  - mdtraj
+  - nglview
+  - rdkit
+  - openff-fragmenter
+  - openff-toolkit
+
+

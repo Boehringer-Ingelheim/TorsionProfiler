@@ -1,0 +1,6 @@
+	molecule	torsion_atom_ids	angles	potential_energies	boltzman_ensemble_weight	rel_potential_energies	molID	approach
+0	CCCC	(0, 1, 2, 3)	-180.0	-5.075973339995261	1.0	0.0	Butan	mmff94
+1	CCCC	(0, 1, 2, 3)	-90.0	-3.1213709537753753	0.0	1.9546023862198854	Butan	mmff94
+2	CCCC	(0, 1, 2, 3)	-0.0	0.1336546284528543	0.0	5.209627968448115	Butan	mmff94
+3	CCCC	(0, 1, 2, 3)	90.0	-3.121372115684797	0.0	1.9546012243104638	Butan	mmff94
+4	CCCC	(0, 1, 2, 3)	180.0	-3.1299997009352345	0.0	1.9459736390600262	Butan	mmff94
