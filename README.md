@@ -162,4 +162,4 @@ there are only a few things, that I would like to have in this repo:
  3. Please start a branch with git of the main repo, where you develop your cool new feature :)
 
 ### Authors:
-Benjamin Ries, Igor Gordiy, Thomas Fox
+Benjamin Ries, Igor Gordiy, Markus Hermann & Thomas Fox
