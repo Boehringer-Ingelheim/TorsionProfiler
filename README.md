@@ -151,6 +151,8 @@ You can simply install TorsionProfiler with mamba using:
     cd torsion_profiler
     mamba env create -f environment.yml
     mamba activate torsion_profiler
+    # change the config file in src/torsion_profiler/conf.json
+    # to point to the correct enviroments
     pip install .
 ```
 
