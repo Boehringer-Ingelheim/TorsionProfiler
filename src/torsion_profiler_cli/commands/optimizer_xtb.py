@@ -1,4 +1,5 @@
-#!/home/riesbenj/.conda/envs/aniEnvFrag/bin/python
+# This code is part of TorsionProfiler and is licensed under the MIT license.
+# For details, see https://github.com/bi/torsionprofiler
 
 """GFN2 Coordinate Optimization:
     this is the command for calculating an GFM2 optimization

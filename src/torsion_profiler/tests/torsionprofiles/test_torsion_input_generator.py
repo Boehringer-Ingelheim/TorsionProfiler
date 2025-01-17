@@ -60,5 +60,5 @@ def test_tpg_2d_landscape(butan):
     all_angles = np.hstack([one_row for i in range(n_measurements)])
     np.testing.assert_allclose(torsion_profile["torsion_angle"].to_numpy(), all_angles,
                                    rtol=10**-1)
-    path= f"/home/riesbenj/Code/Mol_props/TorsionProfiler/src/{tpg.__class__.__name__}_2d.sdf"
+    path= f"{tpg.__class__.__name__}_2d.sdf"
     store_mol_db(torsion_profile, path)
