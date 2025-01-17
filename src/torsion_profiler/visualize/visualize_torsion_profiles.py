@@ -361,7 +361,6 @@ def _plot_torsion_profile(
 
     return fig
 
-
 def _show_mol_2d(
     mol: Chem.Mol,
     torsion_atom_ids: tuple[int, int, int, int],
@@ -395,40 +394,41 @@ def _show_mol_2d(
         fig = None
 
     # Plot mol:
-    mol_copy = Chem.Mol(mol)
-    mol_copy = Chem.RemoveHs(mol_copy, implicitOnly=False, updateExplicitCount=False,
-                             sanitize=False)
-    mol_copy.RemoveAllConformers()
-
+    mol2draw = Chem.Mol(mol)
+    mol2draw = Chem.RemoveHs(mol2draw, implicitOnly=False, updateExplicitCount=False,
+                             sanitize=True)
+    mol2draw.RemoveAllConformers()
+    torsion_atom_ids_string = "_".join([str(x) for x in torsion_atom_ids])
     bonds = []
-    color_ta=[]
-    if torsion_atom_ids is not None:
-        for i in range(len(torsion_atom_ids) - 1):
-            try:
-                bond = mol.GetBondBetweenAtoms(torsion_atom_ids[i], torsion_atom_ids[i + 1])
-                if bond is not None:
-                    bonds.append(bond.GetIdx())
-            except ValueError:
-                pass
-            try:
-                mol_copy.GetAtomWithIdx(i)
-                color_ta.append(i)
-            except Exception:
-                pass
-        try:
-            mol_copy.GetAtomWithIdx(torsion_atom_ids[-1])
-            color_ta.append(torsion_atom_ids[-1])
-        except Exception:
-            pass
-    print(torsion_atom_ids)
-    g = Draw.MolToImage(
-        mol_copy,
-        size=(300, 300),
-        canvas=None,
-        fitImage=True,
-        #highlightAtoms=torsion_atom_ids,
-        highlightBonds=bonds,
+    n_torsion_atom_ids = []
 
+    if torsion_atom_ids is not None:
+        #Mapping torsion mol atoms to torsion mol2draw atoms
+        mol_H_map = get_atommap(mol, mol2draw)
+        for t in torsion_atom_ids:
+            # Need this try block in case a atom is not mapped
+            # This happens if the dihedral angle was defined via an H.
+            try:
+                n_torsion_atom_ids.append(mol_H_map[t])
+            except KeyError:
+                print("Could not find the torsion atom id in 2D mol.", t, mol.GetAtomWithIdx(t).GetSymbol())
+
+    # loop over mapped atoms
+    # find bonds
+    for i in range(len(n_torsion_atom_ids) - 1):
+        try:
+            bond = mol.GetBondBetweenAtoms(n_torsion_atom_ids[i], n_torsion_atom_ids[i + 1])
+            if bond is not None:
+                bonds.append(bond.GetIdx())
+        except ValueError:
+            pass
+
+    color_ta = n_torsion_atom_ids
+    g = Draw.MolToImage(
+        mol2draw,
+        size=(300, 300),
+        highlightAtoms=color_ta,
+        #highlightBonds=bonds,
     )
     g = np.asarray(g)
     ax.imshow(g)
@@ -513,3 +513,24 @@ def _plot_2dtorsion_profile(
         fig.savefig(out_fig_path)
 
     return fig, cb
+
+def get_atommap(template_mol, match_mol, hard = False, timeout = 36):
+    """
+    Kudos @ Markus Hermann
+
+    Matches atoms between two mols by MCS
+    :param template_mol: mol1 for matching
+    :param match_mol: mol2 for matching
+    :return: atom_map
+    """
+    from rdkit.Chem import rdFMCS
+    params = rdFMCS.MCSParameters()
+    if hard:
+        params.AtomTyper = rdFMCS.AtomCompare.CompareElements
+    params.BondCompareParameters.RingMatchesRingOnly = True
+    res = rdFMCS.FindMCS([template_mol, match_mol], bondCompare=rdFMCS.BondCompare.CompareAny, timeout = timeout)
+    mcs_mol = Chem.MolFromSmarts(res.smartsString)
+    match_mol_match = match_mol.GetSubstructMatch(mcs_mol)
+    template_mol_match = template_mol.GetSubstructMatch(mcs_mol)
+    atom_map = dict([(x, y) for x, y in zip(template_mol_match, match_mol_match)])
+    return atom_map
