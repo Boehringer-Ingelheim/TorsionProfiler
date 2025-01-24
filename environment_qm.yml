@@ -1,0 +1,34 @@
+name: torsion_profiler_qm
+channels:
+  - conda-forge
+  - defaults
+  - psi4
+dependencies:
+  # Python
+  - python
+  - pip
+  - notebook
+  - tqdm
+  - pytest
+
+  # std. Python:
+  - matplotlib
+  - numpy
+  - pandas
+  - scipy
+  - sklearn
+
+  # Chemistry
+  - mdtraj
+  - nglview
+  - rdkit
+  - openff-fragmenter
+
+  # special
+  - libecpint
+  - psi4
+  - xtb
+
+  - pip:
+    - cclib
+

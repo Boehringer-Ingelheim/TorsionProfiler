@@ -1,0 +1,11 @@
+{
+  "conda_calculator_envs": {
+    "Mmff94Calculator": "<PATH_TO_ENV>/torsion_profiler",
+    "OffCalculator": "<PATH_TO_ENV>/torsion_profiler",
+    "AniCalculator": "<PATH_TO_ENV>/torsion_profiler",
+    "MACECalculator": "<PATH_TO_ENV>/torsion_profiler",
+    "XtbCalculator": "<PATH_TO_ENV>/torsion_profiler_qm",
+    "Psi4Calculator": "<PATH_TO_ENV>/torsion_profiler_qm",
+    "GaussianCalculator": "<PATH_TO_ENV>/torsion_profiler"
+  }
+}

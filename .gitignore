@@ -1,0 +1,43 @@
+#python:
+__pycache__
+
+#HPC orchestration
+dask-worker-space
+
+#jupyter tmps
+.ipynb_checkpoints
+
+# all tmp files:
+**/tmp/*
+model.pt
+test*.pdb
+
+# packaging:
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/remove vers file
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+#gen data:
+examples/tmp
+examples/*.pt
+dev/dev_jnbs/testing_metrics
+dev/dev_science/tmp_data
+examples/nohup.out
+*/_version.py
+/.img/Thumbs.db
+.mypy_cache/

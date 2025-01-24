@@ -1,0 +1,3 @@
+[submodule "src/torsion_profiler/data/ml_models/mace-off"]
+	path = src/torsion_profiler/data/ml_models/mace-off
+	url = https://github.com/ACEsuit/mace-off.git
