@@ -27,7 +27,8 @@ dependencies:
   # special
   - libecpint
   - psi4
-  - xtb
+    # 6.7.1 is buggy
+  - xtb==6.6.1
 
   - pip:
     - cclib
