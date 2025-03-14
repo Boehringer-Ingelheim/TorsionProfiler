@@ -37,8 +37,5 @@ dependencies:
 
   #Special:
   #- cudatoolkit=11.3.1
-  pip:
-   - mace-torch
-   -
-
-
+  - pip:
+    - mace-torch    
