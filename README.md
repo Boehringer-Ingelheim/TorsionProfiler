@@ -73,7 +73,7 @@ Of course you can access TorsionProfiler over python, just make sure you activat
 ```python
 
 # input Test data - sdfs
-from torsion_profiler.data.torsionProfiles import ToyTestSet
+from torsion_profiler.data.torsion_profiles import ToyTestSet
 
 mols = ToyTestSet.get_mols()
 mol = mols[0]
@@ -89,7 +89,7 @@ tp = TorsionProfiler(calculator=aniCal,
                      n_measurements=n_measurements)
 
 # Calculate
-df = tp.calculateTorsion_profile(mol=mol,
+df = tp.calculate_torsion_profile(mol=mol,
                                  torsion_atom_ids=torsion_atom_ids)
 
 # Visualize
