@@ -20,7 +20,7 @@ At the heart of TorsionProfiler is the TorsionProfiler class, which standardizes
 
 TorsionProfiler can be utilized either through Python3 or as a Command-Line Interface (CLI) tool (details provided below).
 
-Chckout our first pre-print: [Beyond Barriers, Big Crystallisation Hurdles: Atropisomerism in bRo5 Compounds Explored by Computational and NMR Studies](https://doi.org/10.26434/chemrxiv-2025-rz4q6)
+Checkout our first pre-print: [Beyond Barriers, Big Crystallisation Hurdles: Atropisomerism in bRo5 Compounds Explored by Computational and NMR Studies](https://doi.org/10.26434/chemrxiv-2025-rz4q6)
 
 
 
