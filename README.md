@@ -20,8 +20,9 @@ At the heart of TorsionProfiler is the TorsionProfiler class, which standardizes
 
 TorsionProfiler can be utilized either through Python3 or as a Command-Line Interface (CLI) tool (details provided below).
 
-Checkout our publication: [Beyond Barriers, Big Crystallisation Hurdles: Atropisomerism in bRo5 Compounds Explored by Computational and NMR Studies](https://doi.org/10.1021/acs.molpharmaceut.5c00204)
 
+Checkout our publication: [Beyond Barriers, Big Crystallisation Hurdles: Atropisomerism in bRo5 Compounds Explored by Computational and NMR Studies](https://doi.org/10.1021/acs.molpharmaceut.5c00204)
+([preprint](https://doi.org/10.26434/chemrxiv-2025-rz4q6))
 
 
 ## Usage
@@ -73,7 +74,7 @@ Of course you can access TorsionProfiler over python, just make sure you activat
 ```python
 
 # input Test data - sdfs
-from torsion_profiler.data.torsionProfiles import ToyTestSet
+from torsion_profiler.data.torsion_profiles import ToyTestSet
 
 mols = ToyTestSet.get_mols()
 mol = mols[0]
@@ -89,7 +90,7 @@ tp = TorsionProfiler(calculator=aniCal,
                      n_measurements=n_measurements)
 
 # Calculate
-df = tp.calculateTorsion_profile(mol=mol,
+df = tp.calculate_torsion_profile(mol=mol,
                                  torsion_atom_ids=torsion_atom_ids)
 
 # Visualize
