@@ -20,7 +20,7 @@ log = logging.getLogger(__name__)
 
 def periodic_angle(angle: float) -> float:
     """
-    this is a function for fixing periodc angle problem.
+    this is a function for fixing periodic angle problem.
     Place each angle between -180, 180
 
     Parameters
@@ -160,7 +160,7 @@ class FastProfileGenerator(_AbstractTorsionProfileGenerator):
             _additional_torsions: list[tuple[int, int, int, int, float]] , dev:float=0.01
     ) -> pd.DataFrame:
         """
-        minimize one cofnormer - helper function
+        minimize one conformer - helper function
 
         Parameters
         ----------

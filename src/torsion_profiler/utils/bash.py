@@ -30,7 +30,7 @@ def wait_for_file_system(
     This function can be used to circumvent lsf lag times.
     Parameters
     ----------
-    check_path: str - Path to file to check if existant
+    check_path: str - Path to file to check if extant
     max_waiting_iterations: int - maximal iteration Time
     verbose: bool - tell me if found
     Returns
@@ -66,7 +66,7 @@ def check_path_dependencies(
 ) -> str:
     """check_path_dependencies
         checks a list of dependencies if each path is present or not. throws an
-        IOError, if an Path is not existing.
+        IOError, if a Path is not existing.
     Parameters
     ----------
     check_required_paths :    Union[t.dict[any, str], list[str]]
@@ -154,7 +154,7 @@ def check_path_dependencies(
         print("\n==================\nAUTSCH\n==================\n")
         missing_str = "\n\t".join(map(str, missing))
         raise IOError(
-            "COULD NOT FIND all DEPENDENCY!\n\t Could not find path to: \n\t" + str(missing_str),
+            "COULD NOT FIND all DEPENDENCIES!\n\t Could not find path to: \n\t" + str(missing_str),
             "\n\n",
         )
     if verbose:
@@ -175,7 +175,7 @@ def execute(
     command : str
         bash command
     catch_std :
-        if bool: catch the output and past it into the command line
+        if bool: catch the output and paste it into the command line
         if str: catch output and write it into this file
     env: dict
         environment
@@ -211,7 +211,7 @@ def execute(
     p.terminate()  # Make sure its terminated
     r = p.poll()
 
-    if r:  # Did an Error occure?
+    if r:  # Did an Error occur?
         msg = "SubProcess Failed due to returncode: " + str(r) + "\n COMMAND: \n\t" + str(command)
         msg += "\nSTDOUT:\n\t"
         msg += "NONE" if (p.stdout is None) else "\n\t".join(map(str, p.stdout.readlines()))

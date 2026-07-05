@@ -1,5 +1,5 @@
 """
-Implements a "local" submission system, that smiply executes the commands directly in the shell.
+Implements a "local" submission system, that simply executes the commands directly in the shell.
 """
 import os
 import warnings
@@ -43,7 +43,7 @@ class Local(SubmissionSystem):
 
     def submit_to_queue(self, sub_job: SubmissionJob) -> int:
         """
-        submitt a local job
+        submit a local job
         """
 
         orig_dir = os.getcwd()
@@ -116,7 +116,7 @@ class Local(SubmissionSystem):
 
     def submit_job_array_to_queue(self, sub_job: SubmissionJob) -> int:
         """
-        submitt a local job array
+        submit a local job array
         """
 
         # generate submission_string:
@@ -161,7 +161,7 @@ class Local(SubmissionSystem):
 
     def search_queue_for_jobname(self, job_name: str, **kwargs) -> list[str]:
         """search_queue_for_jobname
-            this jobs searches the job queue for a certain job name.
+            this function searches the job queue for a certain job name.
             DUMMY FUNCTION!
         Parameters
         ----------
@@ -180,7 +180,7 @@ class Local(SubmissionSystem):
 
     def search_queue_for_jobid(self, job_id: int, **kwargs) -> pd.DataFrame:
         """search_queue_for_jobid
-            this jobs searches the job queue for a certain job id.
+            this function searches the job queue for a certain job id.
             DUMMY FUNCTION!
         Parameters
         ----------
