@@ -14,7 +14,7 @@ def read_mol_db(
 ) -> pd.DataFrame:
     """
     This function is reading an sdf or pdb file and merges all conformers into one rd-mol.
-    Additional 4 atom ids can be provided, to calculate for each conformere the torsion angle
+    Additional 4 atom ids can be provided, to calculate for each conformer the torsion angle
     between them.
 
     Parameters
@@ -107,7 +107,7 @@ def store_mol_db(
     out_sdf_path : str
         out file path for the molecule structures
     torsion_atom_ids : tuple[int, int, int, int], optional
-        ids of the torison of interest. if provided the dihedral angles will be added.,
+        ids of the torsion of interest. if provided the dihedral angles will be added.,
         by default None
 
 

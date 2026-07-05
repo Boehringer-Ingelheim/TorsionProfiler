@@ -13,7 +13,7 @@ from ._computing_envs import _ComputingEnv
 
 class ScriptComputing(_ComputingEnv):
     """
-    Script Computing gives access to execute files form the os environment.
+    Script Computing gives access to execute files from the OS environment.
     """
     submission_system: SubmissionSystem
     n_tasks: int

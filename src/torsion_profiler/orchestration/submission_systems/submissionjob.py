@@ -106,14 +106,14 @@ class SubmissionJob:
     @property
     def submit_from_file(self) -> bool:
         """
-        getter if the job shall be submitted form a file
+        getter if the job shall be submitted from a file
         """
         return self._submit_from_file
 
     @property
     def submit_from_dir(self) -> str:
         """
-        getter for path where to submit form
+        getter for path where to submit from
         """
         return self._submit_from_dir
 

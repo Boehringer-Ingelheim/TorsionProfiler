@@ -152,7 +152,7 @@ def show_3d_torsion_flower(in_mol: Chem.Mol) -> ng.widget.NGLWidget:
     Returns
     -------
     ng.widget.NGLWidget
-        the beautiful torison flower
+        the beautiful torsion flower
     """
     if isinstance(in_mol, Chem.Mol):
         tmp_file = tempfile.NamedTemporaryFile(mode="w", suffix="_torsion_profiler_vis.pdb")
